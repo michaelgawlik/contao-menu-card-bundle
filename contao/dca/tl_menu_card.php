@@ -45,7 +45,7 @@ $GLOBALS['TL_DCA']['tl_menu_card'] = [
             ],
             'translations' => [
                 'href'       => 'table=tl_menu_card_translation',
-                'icon'       => 'children.svg',
+                'icon'       => 'bundles/menucard/language.svg',
                 'attributes' => 'title="Weitere Sprachen"',
             ],
             'copy' => [

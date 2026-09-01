@@ -39,7 +39,7 @@ $GLOBALS['TL_DCA']['tl_menu_item_price'] = [
             ],
             'translations' => [
                 'href'       => 'table=tl_menu_item_price_translation',
-                'icon'       => 'children.svg',
+                'icon'       => 'bundles/menucard/language.svg',
                 'attributes' => 'title="Weitere Sprachen"',
             ],
             'copy' => [
