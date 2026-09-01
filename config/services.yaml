@@ -1,0 +1,15 @@
+parameters:
+    menu_card.languages: ['de', 'en']
+    menu_card.default_language: 'de'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    DiamondsNetwork\MenuCardBundle\:
+        resource: '../src/'
+        exclude:
+            - '../src/ContaoManager/'
+            - '../src/Model/'

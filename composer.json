@@ -1,0 +1,24 @@
+{
+    "name": "diamonds-network/contao-menu-card-bundle",
+    "type": "contao-bundle",
+    "description": "Restaurant menu (Speisekarte) management for Contao 5 — backend-managed menu cards with web rendering and InDesign export.",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.2",
+        "contao/core-bundle": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "DiamondsNetwork\\MenuCardBundle\\": "src/"
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "DiamondsNetwork\\MenuCardBundle\\ContaoManager\\Plugin"
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "contao/manager-plugin": true
+        }
+    }
+}
