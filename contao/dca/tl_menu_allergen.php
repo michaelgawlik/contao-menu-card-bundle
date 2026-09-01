@@ -20,6 +20,7 @@ $GLOBALS['TL_DCA']['tl_menu_allergen'] = [
     ],
 
     'list' => [
+        'lazyLoadOperations' => false,
         'sorting' => [
             'mode'               => DataContainer::MODE_SORTED,
             'fields'             => ['code'],

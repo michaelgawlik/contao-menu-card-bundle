@@ -22,6 +22,7 @@ $GLOBALS['TL_DCA']['tl_menu_category'] = [
     ],
 
     'list' => [
+        'lazyLoadOperations' => false,
         'sorting' => [
             'mode'         => DataContainer::MODE_PARENT,
             'fields'       => ['sorting'],
