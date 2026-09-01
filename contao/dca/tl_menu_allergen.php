@@ -24,6 +24,7 @@ $GLOBALS['TL_DCA']['tl_menu_allergen'] = [
             'mode'               => DataContainer::MODE_SORTED,
             'fields'             => ['code'],
             'flag'               => DataContainer::SORT_ASC,
+            'disableGrouping'    => true,
             'panelLayout'        => 'search,limit',
             'defaultSearchField' => 'title',
         ],

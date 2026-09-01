@@ -24,6 +24,7 @@ $GLOBALS['TL_DCA']['tl_menu_additive'] = [
             'mode'               => DataContainer::MODE_SORTED,
             'fields'             => ['number'],
             'flag'               => DataContainer::SORT_ASC,
+            'disableGrouping'    => true,
             'panelLayout'        => 'search,limit',
             'defaultSearchField' => 'title',
         ],
