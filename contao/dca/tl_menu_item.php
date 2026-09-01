@@ -13,6 +13,7 @@ $GLOBALS['TL_DCA']['tl_menu_item'] = [
         'ctable'           => ['tl_menu_item_price', 'tl_menu_item_translation'],
         'switchToEdit'     => true,
         'enableVersioning' => true,
+        'markAsCopy'       => 'title',
         'sql'              => [
             'keys' => [
                 'id'  => 'primary',
@@ -28,8 +29,8 @@ $GLOBALS['TL_DCA']['tl_menu_item'] = [
             'panelLayout' => 'search,limit',
         ],
         'label' => [
-            'fields' => ['id'],
-            'format' => 'Position #%s',
+            'fields' => ['title'],
+            'format' => '%s',
         ],
         'operations' => [
             'edit' => [
@@ -43,8 +44,8 @@ $GLOBALS['TL_DCA']['tl_menu_item'] = [
             ],
             'translations' => [
                 'href'       => 'table=tl_menu_item_translation',
-                'icon'       => 'theme_plus.svg',
-                'attributes' => 'title="Übersetzungen"',
+                'icon'       => 'children.svg',
+                'attributes' => 'title="Weitere Sprachen"',
             ],
             'copy' => [
                 'href' => 'act=copy',
@@ -63,7 +64,7 @@ $GLOBALS['TL_DCA']['tl_menu_item'] = [
     ],
 
     'palettes' => [
-        'default' => '{publish_legend},published;{dietary_legend},dietary;{additive_legend},additives;{allergen_legend},allergens',
+        'default' => '{title_legend},title,description;{publish_legend},published;{dietary_legend},dietary;{additive_legend},additives;{allergen_legend},allergens',
     ],
 
     'fields' => [
@@ -78,6 +79,18 @@ $GLOBALS['TL_DCA']['tl_menu_item'] = [
         ],
         'sorting' => [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
+        ],
+        'title' => [
+            'search'    => true,
+            'inputType' => 'text',
+            'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
+            'sql'       => ['type' => 'string', 'length' => 255, 'default' => ''],
+        ],
+        'description' => [
+            'search'    => true,
+            'inputType' => 'textarea',
+            'eval'      => ['tl_class' => 'clr'],
+            'sql'       => ['type' => 'text', 'notnull' => false],
         ],
         'published' => [
             'toggle'    => true,

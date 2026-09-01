@@ -18,4 +18,15 @@ class LanguageOptions
     {
         return System::getContainer()->getParameter('menu_card.languages');
     }
+
+    /**
+     * Languages selectable in a *_translation table: the default language lives
+     * directly on the parent record, so it is excluded here to avoid duplicates.
+     */
+    public static function getAdditional(DataContainer $dc): array
+    {
+        $default = System::getContainer()->getParameter('menu_card.default_language');
+
+        return array_values(array_diff(self::get($dc), [$default]));
+    }
 }

@@ -11,7 +11,7 @@ $GLOBALS['TL_DCA']['tl_menu_allergen'] = [
         'ctable'           => ['tl_menu_allergen_translation'],
         'switchToEdit'     => true,
         'enableVersioning' => true,
-        'markAsCopy'       => 'code',
+        'markAsCopy'       => 'title',
         'sql'              => [
             'keys' => [
                 'id' => 'primary',
@@ -25,11 +25,11 @@ $GLOBALS['TL_DCA']['tl_menu_allergen'] = [
             'fields'             => ['code'],
             'flag'               => DataContainer::SORT_ASC,
             'panelLayout'        => 'search,limit',
-            'defaultSearchField' => 'code',
+            'defaultSearchField' => 'title',
         ],
         'label' => [
-            'fields' => ['code'],
-            'format' => '%s',
+            'fields' => ['code', 'title'],
+            'format' => '%s — %s',
         ],
         'operations' => [
             'edit' => [
@@ -38,8 +38,8 @@ $GLOBALS['TL_DCA']['tl_menu_allergen'] = [
             ],
             'translations' => [
                 'href'       => 'table=tl_menu_allergen_translation',
-                'icon'       => 'theme_plus.svg',
-                'attributes' => 'title="Übersetzungen"',
+                'icon'       => 'children.svg',
+                'attributes' => 'title="Weitere Sprachen"',
             ],
             'copy' => [
                 'href' => 'act=copy',
@@ -58,7 +58,7 @@ $GLOBALS['TL_DCA']['tl_menu_allergen'] = [
     ],
 
     'palettes' => [
-        'default' => '{code_legend},code',
+        'default' => '{code_legend},code;{title_legend},title,description',
     ],
 
     'fields' => [
@@ -73,6 +73,18 @@ $GLOBALS['TL_DCA']['tl_menu_allergen'] = [
             'inputType' => 'text',
             'eval'      => ['mandatory' => true, 'maxlength' => 8, 'unique' => true, 'tl_class' => 'w50'],
             'sql'       => ['type' => 'string', 'length' => 8, 'default' => ''],
+        ],
+        'title' => [
+            'search'    => true,
+            'inputType' => 'text',
+            'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
+            'sql'       => ['type' => 'string', 'length' => 255, 'default' => ''],
+        ],
+        'description' => [
+            'search'    => true,
+            'inputType' => 'textarea',
+            'eval'      => ['tl_class' => 'clr'],
+            'sql'       => ['type' => 'text', 'notnull' => false],
         ],
     ],
 ];

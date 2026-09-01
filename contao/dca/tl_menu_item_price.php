@@ -12,6 +12,7 @@ $GLOBALS['TL_DCA']['tl_menu_item_price'] = [
         'ctable'           => ['tl_menu_item_price_translation'],
         'switchToEdit'     => true,
         'enableVersioning' => true,
+        'markAsCopy'       => 'label',
         'sql'              => [
             'keys' => [
                 'id'  => 'primary',
@@ -27,8 +28,8 @@ $GLOBALS['TL_DCA']['tl_menu_item_price'] = [
             'panelLayout' => 'search,limit',
         ],
         'label' => [
-            'fields' => ['price'],
-            'format' => '%s €',
+            'fields' => ['label', 'price'],
+            'format' => '%s — %s €',
         ],
         'operations' => [
             'edit' => [
@@ -37,8 +38,8 @@ $GLOBALS['TL_DCA']['tl_menu_item_price'] = [
             ],
             'translations' => [
                 'href'       => 'table=tl_menu_item_price_translation',
-                'icon'       => 'theme_plus.svg',
-                'attributes' => 'title="Übersetzungen"',
+                'icon'       => 'children.svg',
+                'attributes' => 'title="Weitere Sprachen"',
             ],
             'copy' => [
                 'href' => 'act=copy',
@@ -53,7 +54,7 @@ $GLOBALS['TL_DCA']['tl_menu_item_price'] = [
     ],
 
     'palettes' => [
-        'default' => '{price_legend},price',
+        'default' => '{price_legend},label,price',
     ],
 
     'fields' => [
@@ -68,6 +69,12 @@ $GLOBALS['TL_DCA']['tl_menu_item_price'] = [
         ],
         'sorting' => [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
+        ],
+        'label' => [
+            'search'    => true,
+            'inputType' => 'text',
+            'eval'      => ['mandatory' => true, 'maxlength' => 64, 'tl_class' => 'w50'],
+            'sql'       => ['type' => 'string', 'length' => 64, 'default' => ''],
         ],
         'price' => [
             'inputType' => 'text',

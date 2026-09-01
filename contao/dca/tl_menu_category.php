@@ -12,6 +12,7 @@ $GLOBALS['TL_DCA']['tl_menu_category'] = [
         'ctable'           => ['tl_menu_item', 'tl_menu_category_translation'],
         'switchToEdit'     => true,
         'enableVersioning' => true,
+        'markAsCopy'       => 'title',
         'sql'              => [
             'keys' => [
                 'id'  => 'primary',
@@ -27,8 +28,8 @@ $GLOBALS['TL_DCA']['tl_menu_category'] = [
             'panelLayout' => 'search,limit',
         ],
         'label' => [
-            'fields' => ['id'],
-            'format' => 'Kategorie #%s',
+            'fields' => ['title'],
+            'format' => '%s',
         ],
         'operations' => [
             'edit' => [
@@ -42,8 +43,8 @@ $GLOBALS['TL_DCA']['tl_menu_category'] = [
             ],
             'translations' => [
                 'href'       => 'table=tl_menu_category_translation',
-                'icon'       => 'theme_plus.svg',
-                'attributes' => 'title="Übersetzungen"',
+                'icon'       => 'children.svg',
+                'attributes' => 'title="Weitere Sprachen"',
             ],
             'copy' => [
                 'href' => 'act=copy',
@@ -62,7 +63,7 @@ $GLOBALS['TL_DCA']['tl_menu_category'] = [
     ],
 
     'palettes' => [
-        'default' => '{publish_legend},published',
+        'default' => '{title_legend},title,description;{publish_legend},published',
     ],
 
     'fields' => [
@@ -77,6 +78,18 @@ $GLOBALS['TL_DCA']['tl_menu_category'] = [
         ],
         'sorting' => [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
+        ],
+        'title' => [
+            'search'    => true,
+            'inputType' => 'text',
+            'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
+            'sql'       => ['type' => 'string', 'length' => 255, 'default' => ''],
+        ],
+        'description' => [
+            'search'    => true,
+            'inputType' => 'textarea',
+            'eval'      => ['tl_class' => 'clr'],
+            'sql'       => ['type' => 'text', 'notnull' => false],
         ],
         'published' => [
             'toggle'    => true,

@@ -15,10 +15,15 @@ $GLOBALS['BE_MOD']['content']['menu_card'] = [
     ],
 ];
 
-$GLOBALS['BE_MOD']['content']['menu_master_data'] = [
+$GLOBALS['BE_MOD']['content']['menu_additive'] = [
     'tables' => [
         'tl_menu_additive',
         'tl_menu_additive_translation',
+    ],
+];
+
+$GLOBALS['BE_MOD']['content']['menu_allergen'] = [
+    'tables' => [
         'tl_menu_allergen',
         'tl_menu_allergen_translation',
     ],

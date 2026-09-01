@@ -48,7 +48,7 @@ $GLOBALS['TL_DCA']['tl_menu_item_translation'] = [
         ],
         'language' => [
             'inputType'        => 'select',
-            'options_callback' => [LanguageOptions::class, 'get'],
+            'options_callback' => [LanguageOptions::class, 'getAdditional'],
             'eval'             => ['mandatory' => true, 'tl_class' => 'w50'],
             'sql'              => ['type' => 'string', 'length' => 5, 'default' => ''],
         ],

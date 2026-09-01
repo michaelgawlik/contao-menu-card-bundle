@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Contao\DataContainer;
 use Contao\DC_Table;
+use DiamondsNetwork\MenuCardBundle\Dca\AliasGenerator;
 
 $GLOBALS['TL_DCA']['tl_menu_card'] = [
     'config' => [
@@ -11,7 +12,7 @@ $GLOBALS['TL_DCA']['tl_menu_card'] = [
         'ctable'           => ['tl_menu_category', 'tl_menu_card_translation'],
         'switchToEdit'     => true,
         'enableVersioning' => true,
-        'markAsCopy'       => 'alias',
+        'markAsCopy'       => 'title',
         'sql' => [
             'keys' => [
                 'id'    => 'primary',
@@ -26,10 +27,10 @@ $GLOBALS['TL_DCA']['tl_menu_card'] = [
             'fields'             => ['sorting'],
             'flag'               => DataContainer::SORT_ASC,
             'panelLayout'        => 'search,filter,limit',
-            'defaultSearchField' => 'alias',
+            'defaultSearchField' => 'title',
         ],
         'label' => [
-            'fields' => ['alias', 'type'],
+            'fields' => ['title', 'type'],
             'format' => '%s <span class="tl_gray">[%s]</span>',
         ],
         'operations' => [
@@ -44,8 +45,8 @@ $GLOBALS['TL_DCA']['tl_menu_card'] = [
             ],
             'translations' => [
                 'href'       => 'table=tl_menu_card_translation',
-                'icon'       => 'theme_plus.svg',
-                'attributes' => 'title="Übersetzungen"',
+                'icon'       => 'children.svg',
+                'attributes' => 'title="Weitere Sprachen"',
             ],
             'copy' => [
                 'href' => 'act=copy',
@@ -64,7 +65,7 @@ $GLOBALS['TL_DCA']['tl_menu_card'] = [
     ],
 
     'palettes' => [
-        'default' => '{type_legend},type,alias;{image_legend},singleSRC;{publish_legend},published,start,stop;{sorting_legend},sorting',
+        'default' => '{title_legend},title,alias,description;{type_legend},type;{image_legend},singleSRC;{publish_legend},published,start,stop;{sorting_legend},sorting',
     ],
 
     'fields' => [
@@ -74,11 +75,26 @@ $GLOBALS['TL_DCA']['tl_menu_card'] = [
         'tstamp' => [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
         ],
-        'alias' => [
+        'title' => [
             'search'    => true,
             'inputType' => 'text',
-            'eval'      => ['mandatory' => true, 'rgxp' => 'alias', 'unique' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
+            'eval'      => ['mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
             'sql'       => ['type' => 'string', 'length' => 255, 'default' => ''],
+        ],
+        'alias' => [
+            'search'        => true,
+            'inputType'     => 'text',
+            'eval'          => ['rgxp' => 'alias', 'unique' => true, 'maxlength' => 255, 'tl_class' => 'w50 clr', 'doNotCopy' => true],
+            'save_callback' => [
+                [AliasGenerator::class, 'generate'],
+            ],
+            'sql' => ['type' => 'string', 'length' => 255, 'default' => ''],
+        ],
+        'description' => [
+            'search'    => true,
+            'inputType' => 'textarea',
+            'eval'      => ['tl_class' => 'clr'],
+            'sql'       => ['type' => 'text', 'notnull' => false],
         ],
         'type' => [
             'filter'    => true,
