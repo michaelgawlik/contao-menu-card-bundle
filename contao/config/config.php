@@ -39,3 +39,6 @@ if (false !== $designPosition) {
 } else {
     $GLOBALS['BE_MOD']['menu'] = $menuGroup;
 }
+
+// Icon for the "Speisekarten" navigation group (targets .group-menu, see BackendUser::navigation())
+$GLOBALS['TL_CSS'][] = 'bundles/menucard/backend.css';
