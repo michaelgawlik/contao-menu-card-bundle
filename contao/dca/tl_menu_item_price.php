@@ -73,7 +73,7 @@ $GLOBALS['TL_DCA']['tl_menu_item_price'] = [
         'label' => [
             'search'    => true,
             'inputType' => 'text',
-            'eval'      => ['mandatory' => true, 'maxlength' => 64, 'tl_class' => 'w50'],
+            'eval'      => ['maxlength' => 64, 'tl_class' => 'w50'],
             'sql'       => ['type' => 'string', 'length' => 64, 'default' => ''],
         ],
         'price' => [
