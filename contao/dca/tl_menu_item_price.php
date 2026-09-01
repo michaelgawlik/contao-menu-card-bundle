@@ -72,7 +72,7 @@ $GLOBALS['TL_DCA']['tl_menu_item_price'] = [
         'price' => [
             'inputType' => 'text',
             'eval'      => ['mandatory' => true, 'tl_class' => 'w50'],
-            'sql'       => ['type' => 'decimal', 'precision' => 10, 'scale' => 2, 'default' => 0],
+            'sql'       => ['type' => 'decimal', 'precision' => 10, 'scale' => 2, 'default' => '0.00'],
         ],
     ],
 ];
