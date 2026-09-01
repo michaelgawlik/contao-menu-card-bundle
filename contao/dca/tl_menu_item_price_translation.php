@@ -21,10 +21,11 @@ $GLOBALS['TL_DCA']['tl_menu_item_price_translation'] = [
 
     'list' => [
         'sorting' => [
-            'mode'        => DataContainer::MODE_PARENT,
-            'fields'      => ['language'],
-            'flag'        => DataContainer::SORT_ASC,
-            'panelLayout' => 'search,limit',
+            'mode'         => DataContainer::MODE_PARENT,
+            'fields'       => ['language'],
+            'flag'         => DataContainer::SORT_ASC,
+            'panelLayout'  => 'search,limit',
+            'headerFields' => ['label'],
         ],
         'label' => [
             'fields' => ['language', 'label'],

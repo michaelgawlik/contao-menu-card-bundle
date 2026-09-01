@@ -23,9 +23,10 @@ $GLOBALS['TL_DCA']['tl_menu_item_price'] = [
 
     'list' => [
         'sorting' => [
-            'mode'        => DataContainer::MODE_PARENT,
-            'fields'      => ['sorting'],
-            'panelLayout' => 'search,limit',
+            'mode'         => DataContainer::MODE_PARENT,
+            'fields'       => ['sorting'],
+            'panelLayout'  => 'search,limit',
+            'headerFields' => ['title'],
         ],
         'label' => [
             'fields' => ['label', 'price'],

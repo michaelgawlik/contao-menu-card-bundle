@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Contao\DataContainer;
 use Contao\DC_Table;
+use DiamondsNetwork\MenuCardBundle\Dca\ItemChildRecordRenderer;
 use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 
 $GLOBALS['TL_DCA']['tl_menu_item'] = [
@@ -24,9 +25,11 @@ $GLOBALS['TL_DCA']['tl_menu_item'] = [
 
     'list' => [
         'sorting' => [
-            'mode'        => DataContainer::MODE_PARENT,
-            'fields'      => ['sorting'],
-            'panelLayout' => 'search,limit',
+            'mode'                   => DataContainer::MODE_PARENT,
+            'fields'                 => ['sorting'],
+            'panelLayout'            => 'search,limit',
+            'headerFields'           => ['title'],
+            'child_record_callback'  => [ItemChildRecordRenderer::class, 'render'],
         ],
         'label' => [
             'fields' => ['title'],
