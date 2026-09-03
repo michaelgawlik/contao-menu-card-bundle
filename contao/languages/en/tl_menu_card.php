@@ -9,11 +9,7 @@ $GLOBALS['TL_LANG']['tl_menu_card']['sorting_legend'] = 'Sorting';
 $GLOBALS['TL_LANG']['tl_menu_card']['title'] = ['Title', 'e.g. "Spring-Summer 2027" (default language German)'];
 $GLOBALS['TL_LANG']['tl_menu_card']['alias'] = ['Alias', 'Generated automatically from the title on save, can be adjusted'];
 $GLOBALS['TL_LANG']['tl_menu_card']['description'] = ['Description', 'Optional description of the card (default language German)'];
-$GLOBALS['TL_LANG']['tl_menu_card']['type'] = ['Type', 'Main card or supplementary card'];
-$GLOBALS['TL_LANG']['tl_menu_card']['type_options'] = [
-    'hauptkarte' => 'Main card',
-    'nebenkarte' => 'Supplementary card',
-];
+$GLOBALS['TL_LANG']['tl_menu_card']['type'] = ['Type', 'Card type (manage under Menu cards → Card types)'];
 $GLOBALS['TL_LANG']['tl_menu_card']['singleSRC'] = ['Cover image', 'Optional cover image of this card'];
 $GLOBALS['TL_LANG']['tl_menu_card']['published'] = ['Published', 'Include card in web output and export'];
 $GLOBALS['TL_LANG']['tl_menu_card']['start'] = ['Valid from', 'Start of the validity period'];

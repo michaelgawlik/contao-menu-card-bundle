@@ -15,6 +15,12 @@ $menuGroup = [
             'tl_menu_item_price_translation',
         ],
     ],
+    'menu_card_type' => [
+        'tables' => [
+            'tl_menu_card_type',
+            'tl_menu_card_type_translation',
+        ],
+    ],
     'menu_additive' => [
         'tables' => [
             'tl_menu_additive',

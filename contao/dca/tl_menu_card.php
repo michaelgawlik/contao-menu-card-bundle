@@ -98,12 +98,12 @@ $GLOBALS['TL_DCA']['tl_menu_card'] = [
             'sql'       => ['type' => 'text', 'notnull' => false],
         ],
         'type' => [
-            'filter'    => true,
-            'inputType' => 'select',
-            'options'   => ['hauptkarte', 'nebenkarte'],
-            'reference' => &$GLOBALS['TL_LANG']['tl_menu_card']['type_options'],
-            'eval'      => ['mandatory' => true, 'tl_class' => 'w50'],
-            'sql'       => ['type' => 'string', 'length' => 32, 'default' => 'hauptkarte'],
+            'filter'     => true,
+            'inputType'  => 'select',
+            'foreignKey' => 'tl_menu_card_type.title',
+            'eval'       => ['mandatory' => true, 'includeBlankOption' => true, 'tl_class' => 'w50'],
+            'sql'        => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
+            'relation'   => ['type' => 'hasOne', 'load' => 'lazy'],
         ],
         'singleSRC' => [
             'inputType' => 'fileTree',

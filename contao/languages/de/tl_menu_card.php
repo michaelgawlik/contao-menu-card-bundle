@@ -9,11 +9,7 @@ $GLOBALS['TL_LANG']['tl_menu_card']['sorting_legend'] = 'Sortierung';
 $GLOBALS['TL_LANG']['tl_menu_card']['title'] = ['Titel', 'z.B. "Frühjahr-Sommer 2027" (Standardsprache Deutsch)'];
 $GLOBALS['TL_LANG']['tl_menu_card']['alias'] = ['Alias', 'Wird beim Speichern automatisch aus dem Titel erzeugt, kann angepasst werden'];
 $GLOBALS['TL_LANG']['tl_menu_card']['description'] = ['Beschreibung', 'Optionale Beschreibung der Karte (Standardsprache Deutsch)'];
-$GLOBALS['TL_LANG']['tl_menu_card']['type'] = ['Art', 'Hauptkarte oder Nebenkarte'];
-$GLOBALS['TL_LANG']['tl_menu_card']['type_options'] = [
-    'hauptkarte' => 'Hauptkarte',
-    'nebenkarte' => 'Nebenkarte',
-];
+$GLOBALS['TL_LANG']['tl_menu_card']['type'] = ['Art', 'Kartenart (verwaltbar unter Speisekarten → Kartenarten)'];
 $GLOBALS['TL_LANG']['tl_menu_card']['singleSRC'] = ['Titelbild', 'Optionales Titelbild dieser Karte'];
 $GLOBALS['TL_LANG']['tl_menu_card']['published'] = ['Veröffentlicht', 'Karte im Web und Export berücksichtigen'];
 $GLOBALS['TL_LANG']['tl_menu_card']['start'] = ['Gültig ab', 'Beginn des Gültigkeitszeitraums'];
