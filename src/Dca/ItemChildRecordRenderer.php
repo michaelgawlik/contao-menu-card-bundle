@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace DiamondsNetwork\MenuCardBundle\Dca;
 
 use Contao\Database;
+use Contao\StringUtil;
 
 /**
- * Renders one item row in the backend list: title, all price variants on one
- * line, description below — instead of the bare default label.
+ * Renders one item row in the backend list: title (with additive/allergen
+ * markers as superscript), all price variants on one line, description below
+ * — instead of the bare default label.
  */
 class ItemChildRecordRenderer
 {
@@ -16,9 +18,14 @@ class ItemChildRecordRenderer
     {
         $title = self::escape((string) ($row['title'] ?? ''));
         $description = trim((string) ($row['description'] ?? ''));
+        $markers = self::loadMarkers($row);
         $prices = self::loadPrices((int) $row['id']);
 
         $html = '<div class="tl_content_left"><strong>'.$title.'</strong>';
+
+        if ($markers !== '') {
+            $html .= '<sup>'.self::escape($markers).'</sup>';
+        }
 
         if ($prices !== '') {
             $html .= '<br>'.$prices;
@@ -29,6 +36,40 @@ class ItemChildRecordRenderer
         }
 
         return $html.'</div>';
+    }
+
+    private static function loadMarkers(array $row): string
+    {
+        $additiveIds = StringUtil::deserialize($row['additives'] ?? null, true);
+        $allergenIds = StringUtil::deserialize($row['allergens'] ?? null, true);
+
+        $markers = [
+            ...self::loadColumn('tl_menu_additive', 'number', array_filter(array_map('intval', $additiveIds))),
+            ...self::loadColumn('tl_menu_allergen', 'code', array_filter(array_map('intval', $allergenIds))),
+        ];
+
+        return implode(',', $markers);
+    }
+
+    private static function loadColumn(string $table, string $column, array $ids): array
+    {
+        if (!$ids) {
+            return [];
+        }
+
+        $placeholders = implode(',', array_fill(0, \count($ids), '?'));
+
+        $result = Database::getInstance()
+            ->prepare("SELECT $column FROM $table WHERE id IN ($placeholders) ORDER BY $column ASC")
+            ->execute(...$ids);
+
+        $values = [];
+
+        while ($result->next()) {
+            $values[] = (string) $result->$column;
+        }
+
+        return $values;
     }
 
     private static function loadPrices(int $itemId): string

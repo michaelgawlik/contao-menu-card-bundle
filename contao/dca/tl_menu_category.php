@@ -65,7 +65,7 @@ $GLOBALS['TL_DCA']['tl_menu_category'] = [
     ],
 
     'palettes' => [
-        'default' => '{title_legend},title,description;{publish_legend},published',
+        'default' => '{title_legend},title,description;{image_legend},singleSRC;{publish_legend},published',
     ],
 
     'fields' => [
@@ -92,6 +92,11 @@ $GLOBALS['TL_DCA']['tl_menu_category'] = [
             'inputType' => 'textarea',
             'eval'      => ['tl_class' => 'clr'],
             'sql'       => ['type' => 'text', 'notnull' => false],
+        ],
+        'singleSRC' => [
+            'inputType' => 'fileTree',
+            'eval'      => ['fieldType' => 'radio', 'filesOnly' => true, 'extensions' => 'jpg,jpeg,png,svg,webp', 'tl_class' => 'clr'],
+            'sql'       => ['type' => 'binary', 'length' => 16, 'fixed' => true, 'notnull' => false],
         ],
         'published' => [
             'toggle'    => true,

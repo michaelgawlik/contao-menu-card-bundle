@@ -1,10 +1,12 @@
 <?php
 
 $GLOBALS['TL_LANG']['tl_menu_category']['title_legend'] = 'Title';
+$GLOBALS['TL_LANG']['tl_menu_category']['image_legend'] = 'Image';
 $GLOBALS['TL_LANG']['tl_menu_category']['publish_legend'] = 'Publication';
 
 $GLOBALS['TL_LANG']['tl_menu_category']['title'] = ['Title', 'e.g. "Starters" (default language German)'];
 $GLOBALS['TL_LANG']['tl_menu_category']['description'] = ['Description', 'Optional description (default language German)'];
+$GLOBALS['TL_LANG']['tl_menu_category']['singleSRC'] = ['Image', 'Optional image for this category'];
 $GLOBALS['TL_LANG']['tl_menu_category']['published'] = ['Published', 'Include category in web output and export'];
 
 $GLOBALS['TL_LANG']['tl_menu_category']['edit'] = ['Edit', 'Edit category ID %s'];
